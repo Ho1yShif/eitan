@@ -21,7 +21,7 @@ export default function Contact() {
 
         <Reveal delay={0.08}>
           <a
-            href={`mailto:${profile.email}`}
+            href={`mailto:${profile.email}?subject=${encodeURIComponent(sections.contact.emailSubject)}`}
             className="link-underline mt-10 inline-block font-display text-2xl text-cream sm:text-3xl"
           >
             {profile.email}

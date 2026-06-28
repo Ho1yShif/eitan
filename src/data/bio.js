@@ -1,0 +1,6 @@
+// Bio paragraphs, verbatim from eitanhiller.com.
+export const bio = [
+  'Eitan Hiller is a New York-based actor, singer, director, and composer who brings an intense rigor to every role, no matter how comedic or dramatic, that is only matched by his ineffable humor. Whether the work is dramatic or absurd, he treats it with the same intensity, the kind that makes even a puppet feel like a real person in the room.',
+  'Music is equally central to who he is. After eight years of professional vocal coaching, Eitan developed both his technique and his own artistic voice. He spent five years singing with the international chorus Hazamir, and in October 2023 joined Six13 Acappella, the award-winning, viral touring group known for reimagining pop culture through a cappella. He also founded and arranges for Oh Baby!, his own vocal jazz quartet, a project that lets him lead from the inside and shape sound exactly the way he wants to hear it.',
+  'Onstage, he has worked with Jazz at Lincoln Center, the New Victory Dance Company, Premiere Stages, Bergen PAC, Black Box PAC, True Groove Records, and Bergen County Players. He holds a BFA in Theatre Performance from the Kean Theatre Conservatory and is a member of Alpha Psi Omega, the national theatre honor society.',
+]

@@ -69,7 +69,7 @@ export default function About() {
             </div>
 
             <div className="border-t border-ink/10 pt-8">
-              <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-marquee text-rouge">
+              <p className="mb-5 font-sans text-sm font-semibold uppercase tracking-marquee text-curtain">
                 {sections.about.skillsLabel}
               </p>
               <div className="space-y-5">
@@ -78,11 +78,11 @@ export default function About() {
                     <p className="mb-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink-soft/70">
                       {cat.group}
                     </p>
-                    <ul className="flex flex-wrap gap-2">
+                    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                       {cat.items.map((item) => (
                         <li
                           key={item}
-                          className="border border-ink/15 px-3 py-1 text-sm text-ink-soft transition-colors duration-300 hover:border-curtain hover:text-curtain"
+                          className="border border-ink/15 px-3 py-1 text-center text-sm text-ink-soft transition-colors duration-300 hover:border-curtain hover:text-curtain"
                         >
                           {item}
                         </li>
