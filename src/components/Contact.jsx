@@ -27,12 +27,7 @@ export default function Contact() {
             {profile.email}
           </a>
           <div className="mt-3">
-            <a
-              href={`tel:${profile.phoneHref}`}
-              className="link-underline text-lg text-cream/80"
-            >
-              {profile.phone}
-            </a>
+            <span className="text-lg text-cream/80">{profile.phone}</span>
           </div>
         </Reveal>
 
