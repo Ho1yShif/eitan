@@ -142,7 +142,7 @@ export default function Videos() {
           {/* Invisible sizer: reserves the height of the tallest tab (Six13). */}
           <div
             aria-hidden="true"
-            className="invisible grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            className="invisible hidden gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-3"
           >
             {sizer.videos.map((v) => (
               <VideoCard key={v.yt} video={v} onPlay={() => {}} />
@@ -156,7 +156,7 @@ export default function Videos() {
               initial="hidden"
               animate="show"
               exit={{ opacity: 0 }}
-              className="absolute inset-x-0 top-0 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-5 sm:absolute sm:inset-x-0 sm:top-0 sm:grid-cols-2 lg:grid-cols-3"
             >
               {current.videos.map((v) => (
                 <VideoCard key={v.yt} video={v} onPlay={setPlaying} />
