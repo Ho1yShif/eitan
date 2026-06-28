@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ease-stage: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-curtain-deep text-cream font-sans;
+    font-feature-settings: 'ss01';
+  }
+
+  /* Quirky-but-refined Fraunces: a touch of softness + wonk for character */
+  .font-display {
+    font-variation-settings: 'SOFT' 30, 'WONK' 1, 'opsz' 110;
+  }
+
+  ::selection {
+    background: #cf9b46;
+    color: #2c0a0d;
+  }
+
+  /* Honour reduced-motion: kill smooth scroll + all motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Paper grain + curtain texture helpers */
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* Marquee bulb row */
+  .bulb {
+    width: 9px;
+    height: 9px;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 30%, #ffe9b8, #cf9b46 55%, #8a5e1f);
+    box-shadow: 0 0 8px 1px rgba(232, 201, 138, 0.65);
+  }
+
+  /* Spotlight glow behind hero */
+  .spotlight {
+    background: radial-gradient(
+      120% 90% at 50% 0%,
+      rgba(232, 201, 138, 0.22) 0%,
+      rgba(207, 155, 70, 0.08) 32%,
+      transparent 62%
+    );
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-stage);
+  }
+  .link-underline:hover {
+    background-size: 100% 1.5px;
+  }
+}
