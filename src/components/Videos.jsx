@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { sections, videoCategories } from '../data/content'
 import Reveal, { staggerChild, staggerParent } from './Reveal'
+import { useModalDismiss } from '../lib/useModalDismiss'
+import SectionHeader from './SectionHeader'
 
 function PlayIcon() {
   return (
@@ -46,16 +48,7 @@ function VideoCard({ video, onPlay }) {
 }
 
 function PlayerModal({ video, onClose }) {
-  // Close on Escape + lock scroll while open.
-  useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose()
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
+  useModalDismiss(onClose)
 
   return (
     <motion.div
@@ -115,14 +108,7 @@ export default function Videos() {
   return (
     <section id="reels" className="relative bg-curtain-deep py-24 sm:py-32">
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <Reveal>
-          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-marquee text-brass">
-            {sections.reels.label}
-          </p>
-          <h2 className="font-display text-[clamp(2.4rem,6vw,4.5rem)] font-black leading-[0.95] tracking-tight text-cream">
-            {sections.reels.heading}
-          </h2>
-        </Reveal>
+        <SectionHeader label={sections.reels.label} heading={sections.reels.heading} />
 
         {/* Category tabs */}
         <Reveal delay={0.05}>

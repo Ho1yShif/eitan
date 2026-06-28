@@ -1,19 +1,13 @@
 import { motion } from 'framer-motion'
 import { press, sections } from '../data/content'
-import Reveal, { staggerChild, staggerParent } from './Reveal'
+import { staggerChild, staggerParent } from './Reveal'
+import SectionHeader from './SectionHeader'
 
 export default function Press() {
   return (
     <section id="press" className="relative bg-curtain-deep py-24 sm:py-32">
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
-        <Reveal>
-          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-marquee text-brass">
-            {sections.press.label}
-          </p>
-          <h2 className="font-display text-[clamp(2.4rem,6vw,4.5rem)] font-black leading-[0.95] tracking-tight text-cream">
-            {sections.press.heading}
-          </h2>
-        </Reveal>
+        <SectionHeader label={sections.press.label} heading={sections.press.heading} />
 
         <motion.ul
           variants={staggerParent}

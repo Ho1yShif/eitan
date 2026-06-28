@@ -3,11 +3,9 @@ import { asset } from './asset'
 export const profile = {
   name: 'Eitan Hiller',
   roles: ['Actor', 'Singer', 'Composer', 'Teacher'],
-  tagline: 'Actor. Singer. Composer. Teacher.',
   location: 'New York, NY',
   email: 'eitanhiller@gmail.com',
   phone: '(201)-315-7971',
-  phoneHref: '+12013157971',
   resume: asset('assets/resume/Eitan-Hiller-Resume.pdf'),
   portraitPrimary: asset('assets/portraits/portrait-1.webp'),
   portraitSecondary: asset('assets/portraits/portrait-2.webp'),

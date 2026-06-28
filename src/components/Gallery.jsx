@@ -1,18 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { gallery, sections } from '../data/content'
-import Reveal, { staggerChild, staggerParent } from './Reveal'
+import { staggerChild, staggerParent } from './Reveal'
+import { useModalDismiss } from '../lib/useModalDismiss'
+import SectionHeader from './SectionHeader'
 
 function Lightbox({ photo, onClose }) {
-  useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose()
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
+  useModalDismiss(onClose)
 
   return (
     <motion.div
@@ -53,14 +47,12 @@ export default function Gallery() {
   return (
     <section id="gallery" className="grain relative bg-cream py-24 text-ink sm:py-32">
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <Reveal>
-          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-marquee text-rouge">
-            {sections.gallery.label}
-          </p>
-          <h2 className="font-display text-[clamp(2.4rem,6vw,4.5rem)] font-black leading-[0.95] tracking-tight">
-            {sections.gallery.heading}
-          </h2>
-        </Reveal>
+        <SectionHeader
+          label={sections.gallery.label}
+          heading={sections.gallery.heading}
+          accent="rouge"
+          tone="dark"
+        />
 
         <motion.div
           variants={staggerParent}
