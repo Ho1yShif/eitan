@@ -78,7 +78,7 @@ export default function About() {
                     <p className="mb-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink-soft/70">
                       {cat.group}
                     </p>
-                    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                       {cat.items.map((item) => (
                         <li
                           key={item}
