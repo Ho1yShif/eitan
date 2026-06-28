@@ -82,7 +82,7 @@ export default function About() {
                       {cat.items.map((item) => (
                         <li
                           key={item}
-                          className="border border-ink/15 px-3 py-1 text-center text-sm text-ink-soft transition-colors duration-300 hover:border-curtain hover:text-curtain"
+                          className="whitespace-nowrap border border-ink/15 px-2 py-1 text-center text-sm text-ink-soft transition-colors duration-300 hover:border-curtain hover:text-curtain"
                         >
                           {item}
                         </li>
