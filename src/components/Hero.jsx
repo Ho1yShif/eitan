@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { profile, sections } from '../data/content'
+import { scrollToHash } from '../lib/scroll'
 import Marquee from './Marquee'
 
 export default function Hero() {
@@ -73,6 +74,10 @@ export default function Hero() {
             <motion.div variants={item} className="mt-9 flex flex-wrap gap-3">
               <a
                 href="#reels"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToHash('#reels')
+                }}
                 className="group inline-flex items-center gap-2 bg-brass px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-curtain-deep transition-colors duration-300 hover:bg-brass-light"
               >
                 {sections.hero.ctaReels}
@@ -80,6 +85,10 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToHash('#contact')
+                }}
                 className="inline-flex items-center border border-cream/30 px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-cream transition-colors hover:border-brass hover:text-brass-light"
               >
                 {sections.hero.ctaContact}

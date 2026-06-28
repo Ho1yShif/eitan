@@ -8,7 +8,8 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* In-page navigation is driven by JS (src/lib/scroll.js); native smooth
+       scroll is intentionally omitted so it doesn't fight the rAF easing. */
     scroll-padding-top: 5rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;

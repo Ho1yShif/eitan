@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { nav, profile } from '../data/content'
+import { scrollToHash } from '../lib/scroll'
 
 const sectionIds = nav.map((n) => n.href.slice(1))
 
@@ -44,6 +45,10 @@ export default function Nav() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <a
           href="#top"
+          onClick={(e) => {
+            e.preventDefault()
+            scrollToHash('#top')
+          }}
           className="group flex items-center gap-2.5 text-cream"
           aria-label="Eitan Hiller — back to top"
         >
@@ -63,6 +68,10 @@ export default function Nav() {
               <li key={item.href}>
                 <a
                   href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToHash(item.href)
+                  }}
                   className="relative text-sm font-medium uppercase tracking-[0.18em] text-cream/80 transition-colors hover:text-brass-light"
                 >
                   {item.label}
@@ -129,7 +138,11 @@ export default function Nav() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setOpen(false)
+                      scrollToHash(item.href)
+                    }}
                     className="block px-3 py-3 font-display text-2xl text-cream/90 transition-colors hover:bg-curtain-soft/50 hover:text-brass-light"
                   >
                     {item.label}
